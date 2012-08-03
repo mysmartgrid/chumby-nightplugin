@@ -8,7 +8,10 @@ HEADERS += \
     alarmform.h \
     alarmwizard.h \
     timepage.h \
-    daypage.h
+    daypage.h \
+    summarypage.h \
+    sourcepage.h \
+    namepage.h
 
 SOURCES += \
 	nightplugin.cpp \
@@ -16,7 +19,10 @@ SOURCES += \
     alarmform.cpp \
     alarmwizard.cpp \
     timepage.cpp \
-    daypage.cpp
+    daypage.cpp \
+    summarypage.cpp \
+    sourcepage.cpp \
+    namepage.cpp
 
 DESTDIR = ../
 
@@ -24,4 +30,7 @@ FORMS += \
     nightwidget.ui \
     alarmform.ui \
     timepage.ui \
-    daypage.ui
+    daypage.ui \
+    summarypage.ui \
+    sourcepage.ui \
+    namepage.ui

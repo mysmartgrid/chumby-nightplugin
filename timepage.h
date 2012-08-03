@@ -13,6 +13,7 @@ class TimePage : public QWizardPage
     
 public:
     explicit TimePage(QWidget *parent = 0);
+	void initializePage();
     ~TimePage();
 	
 private slots:

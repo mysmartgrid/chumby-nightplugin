@@ -22,9 +22,6 @@
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="2">
     <widget class="QLineEdit" name="minEdit">
-     <property name="text">
-      <string>00</string>
-     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -64,9 +61,6 @@
    </item>
    <item row="1" column="0">
     <widget class="QLineEdit" name="hourEdit">
-     <property name="text">
-      <string>00</string>
-     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>

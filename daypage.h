@@ -13,6 +13,7 @@ class DayPage : public QWizardPage
     
 public:
     explicit DayPage(QWidget *parent = 0);
+	void initializePage();
     ~DayPage();
     
 private:
