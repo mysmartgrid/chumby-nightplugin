@@ -19,6 +19,7 @@ public:
 protected slots:
 	//void editAlarm(QListWidgetItem *previous, QListWidgetItem *current);
 	void editAlarm();
+	void refresh();
 
 private:
 	Ui::AlarmForm *_ui;

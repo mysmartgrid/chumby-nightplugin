@@ -11,7 +11,7 @@ AlarmForm::AlarmForm(QWidget *parent) :
 {
     _ui->setupUi(this);
 		
-		_ui->alarmList->addItem("New Alarm");
+		refresh();
 		
 		//connect(_ui->alarmList, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(editAlarm(QListWidgetItem*, QListWidgetItem*)));
 		connect(_ui->alarmList, SIGNAL(itemSelectionChanged()), this, SLOT(editAlarm()));
@@ -31,8 +31,34 @@ AlarmForm::~AlarmForm()
 		qDebug() << "->" << current->text();
 }*/
 
+void AlarmForm::refresh()
+{
+	_ui->alarmList->clear();
+	_ui->alarmList->addItem("New Alarm");
+	std::list<Alarm*> alarms = AlarmDaemon::getInstance().getAlarms();
+	for ( std::list<Alarm*>::iterator it = alarms.begin(); it != alarms.end(); it++ )
+		_ui->alarmList->addItem((*it)->getName());
+}
+
 void AlarmForm::editAlarm()
 {
-	AlarmWizard *wizard = new AlarmWizard();
+	if ( _ui->alarmList->selectedItems().count() == 0 )
+		return;
+	
+	Alarm *alarm = NULL;
+	std::list<Alarm*> alarms = AlarmDaemon::getInstance().getAlarms();
+	for ( std::list<Alarm*>::iterator it = alarms.begin(); it != alarms.end(); it++ )
+	{
+		if ( (*it)->getName().compare(_ui->alarmList->selectedItems().first()->text()) == 0 )
+		{
+			qDebug() << (*it)->getName() << "==" << _ui->alarmList->selectedItems().first()->text();
+			alarm = *it;
+		}
+	}
+	
+	AlarmWizard *wizard = new AlarmWizard(NULL, alarm);
+	connect( wizard, SIGNAL(accepted()), this, SLOT(refresh()) );
+	connect( wizard, SIGNAL(rejected()), _ui->alarmList, SLOT(clearSelection()));
+	//connect( wizard, SIGNAL(accepted()), _ui->alarmList, SLOT(clearSelection()));
 	wizard->showFullScreen();
 }
