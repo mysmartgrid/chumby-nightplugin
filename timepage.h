@@ -10,20 +10,20 @@ class TimePage;
 class TimePage : public QWizardPage
 {
     Q_OBJECT
-    
+
 public:
     explicit TimePage(QWidget *parent = 0);
-	void initializePage();
+    void initializePage();
     ~TimePage();
-	
+
 private slots:
-	void hourUp();
-	void hourDown();
-	void minuteUp();
-	void minuteDown();
-	
+    void hourUp();
+    void hourDown();
+    void minuteUp();
+    void minuteDown();
+
 private:
-    Ui::TimePage *ui;
+    Ui::TimePage *_ui;
 };
 
 #endif // TIMEPAGE_H
