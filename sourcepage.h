@@ -6,6 +6,8 @@
 
 #include "../../controlpanel/audioplugin.h"
 
+//TODO: reselection must be handled
+
 namespace Ui {
 class SourcePage;
 }
@@ -15,7 +17,7 @@ class SourcePage : public QWizardPage
     Q_OBJECT
     
 public:
-    explicit SourcePage(QWidget *parent = 0, QString source = "");
+    explicit SourcePage(QWidget *parent = 0, QStringList source = QStringList());
 	void initializePage();
 	bool isComplete() const;
 	int nextId() const;
@@ -28,7 +30,7 @@ private:
 		Msg::AudioPlugin* getPlugin();
 		QString getPath() const;
     Ui::SourcePage *_ui;
-		QString _source;
+		QStringList _source;
 		Msg::AudioPlugin* _plugin;
 };
 
