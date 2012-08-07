@@ -21,7 +21,7 @@ Msg::NightWidget::NightWidget(QObject* parent)
 
     timeLabel = new QLabel(QString("00:00"));
     updateClock();
-    
+
     QTimer* timer = new QTimer();
     timer->setInterval(1000);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateClock()));
@@ -40,7 +40,7 @@ Msg::NightWidget::NightWidget(QObject* parent)
 
     setLayout(layout);
 }
-   
+
 void Msg::NightWidget::updateClock()
 {
     QTime time = QTime::currentTime();
@@ -66,7 +66,7 @@ std::string Msg::NightPlugin::getName()
 QWidget* Msg::NightPlugin::getWidget()
 {
     QWidget* widget = new NightWidget(0, this);
-    
+
     maxBrightness = getMaxBrightness();
 
     QSettings* settings = new QSettings("/mnt/usb/night.conf", QSettings::NativeFormat);
@@ -74,7 +74,7 @@ QWidget* Msg::NightPlugin::getWidget()
     dark = settings->value("dark", QVariant(0.4)).toDouble();
 
     connect(widget, SIGNAL(destroyed()), this, SLOT(brighten()));
-    
+
     return widget;
 }
 
@@ -112,20 +112,20 @@ void Msg::NightPlugin::setBrightness(int brightness)
 void Msg::NightPlugin::dim()
 {
     qDebug() << "dim";
-		_dimmed = true;
+        _dimmed = true;
     setBrightness(dark*maxBrightness);
 }
 
 void Msg::NightPlugin::brighten()
 {
     qDebug() << "brighten";
-		_dimmed = false;
+        _dimmed = false;
     setBrightness(bright*maxBrightness);
 }
 
 bool Msg::NightPlugin::isDimmed()
 {
-	return _dimmed;
+    return _dimmed;
 }
 
 Msg::Plugin* Msg::NightPluginFactory::CreatePlugin()
