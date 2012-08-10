@@ -10,19 +10,19 @@ class AlarmForm;
 
 class AlarmForm : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	explicit AlarmForm(QWidget *parent = 0);
-	~AlarmForm();
+    explicit AlarmForm(QWidget *parent = 0);
+    ~AlarmForm();
 
 protected slots:
-	//void editAlarm(QListWidgetItem *previous, QListWidgetItem *current);
-	void editAlarm();
-	void refresh();
+    //void editAlarm(QListWidgetItem *previous, QListWidgetItem *current);
+    void alarmDetails();
+    void refresh();
 
 private:
-	Ui::AlarmForm *_ui;
+    Ui::AlarmForm *_ui;
 };
 
 #endif // ALARMFORM_H
