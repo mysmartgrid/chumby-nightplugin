@@ -12,6 +12,7 @@
 AlarmWizard::AlarmWizard(QWidget *parent, Alarm* alarm) :
         QWizard(parent)
 {
+        setOption(QWizard::IndependentPages);
         setPage(TIMEPAGE, new TimePage());
         setPage(DAYPAGE, new DayPage());
         setPage(SOURCEPAGE, new SourcePage());

@@ -12,7 +12,8 @@ HEADERS += \
     summarypage.h \
     sourcepage.h \
     namepage.h \
-    snoozepage.h
+    snoozepage.h \
+    alarmdetails.h
 
 SOURCES += \
 	nightplugin.cpp \
@@ -24,7 +25,8 @@ SOURCES += \
     summarypage.cpp \
     sourcepage.cpp \
     namepage.cpp \
-    snoozepage.cpp
+    snoozepage.cpp \
+    alarmdetails.cpp
 
 DESTDIR = ../
 
@@ -36,4 +38,5 @@ FORMS += \
     summarypage.ui \
     sourcepage.ui \
     namepage.ui \
-    snoozepage.ui
+    snoozepage.ui \
+    alarmdetails.ui

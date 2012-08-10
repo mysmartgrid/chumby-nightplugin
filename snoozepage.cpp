@@ -8,6 +8,9 @@ SnoozePage::SnoozePage(QWidget *parent) :
     _ui->setupUi(this);
 
     registerField("snooze", _ui->snoozeEdit);
+
+        connect(_ui->snoozeUp, SIGNAL(clicked()), this, SLOT(up()));
+        connect(_ui->snoozeDown, SIGNAL(clicked()), this, SLOT(down()));
 }
 
 void SnoozePage::initializePage()
@@ -16,9 +19,6 @@ void SnoozePage::initializePage()
                 _ui->snoozeEdit->setText(field("snooze").toString());
         else
                 _ui->snoozeEdit->setText("05");
-
-        connect(_ui->snoozeUp, SIGNAL(clicked()), this, SLOT(up()));
-        connect(_ui->snoozeDown, SIGNAL(clicked()), this, SLOT(down()));
 }
 
 SnoozePage::~SnoozePage()

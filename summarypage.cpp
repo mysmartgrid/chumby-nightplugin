@@ -14,19 +14,37 @@ SummaryPage::SummaryPage(QWidget *parent) :
 
 void SummaryPage::initializePage()
 {
-		ui->textBrowser->append(field("hour").toString());
-		ui->textBrowser->append(field("minute").toString());
-		ui->textBrowser->append(field("monday").toString());
-		ui->textBrowser->append(field("tuesday").toString());
-		ui->textBrowser->append(field("wednesday").toString());
-		ui->textBrowser->append(field("thursday").toString());
-		ui->textBrowser->append(field("friday").toString());
-		ui->textBrowser->append(field("saturday").toString());
-		ui->textBrowser->append(field("sunday").toString());
-		ui->textBrowser->append(field("weekday").toString());
-		ui->textBrowser->append(field("weekend").toString());
-		ui->textBrowser->append(field("name").toString());
-		ui->textBrowser->append(((AlarmWizard*) wizard())->getSource());
+        ui->textBrowser->clear();
+        ui->textBrowser->append(field("name").toString());
+        ui->textBrowser->append("Time: " + field("hour").toString() + ":" + field("minute").toString());
+        QString rep = "";
+        if ( field("weekday").toBool() && field("weekend").toBool() )
+            rep += "Everyday, ";
+        else if ( field("weekday").toBool() )
+            rep += "Weekdays, ";
+        else if ( field("weekend").toBool() )
+            rep += "Weekend, ";
+        else
+        {
+            if ( field("monday").toBool() )
+                rep += "Monday, ";
+            if ( field("tuesday").toBool() )
+                rep += "Tuesday, ";
+            if ( field("wednesday").toBool() )
+                rep += "Wednesday, ";
+            if ( field("thursday").toBool() )
+                rep += "Thursday, ";
+            if ( field("friday").toBool() )
+                rep += "Friday, ";
+            if ( field("saturday").toBool() )
+                rep += "Saturday, ";
+            if ( field("sunday").toBool() )
+                rep += "Sunday, ";
+        }
+        rep.chop(2);
+        ui->textBrowser->append("Repetitions: " + rep);
+        ui->textBrowser->append("Ringtone: " + ((AlarmWizard*) wizard())->getSource());
+        ui->textBrowser->append("Snoozetime: " + field("snooze").toString());
 }
 
 SummaryPage::~SummaryPage()
@@ -36,5 +54,5 @@ SummaryPage::~SummaryPage()
 
 int SummaryPage::nextId() const
 {
-	return -1;
+    return -1;
 }

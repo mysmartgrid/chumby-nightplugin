@@ -29,6 +29,7 @@ void SourcePage::initializePage()
 {
     if ( _source.size() == 1 )
     {
+            _ui->sourceList->clear();
         _ui->sourceList->addItems(Msg::MusicControl::getInstance().getAudioPlugins());
         //load source from wizard, if available
         if ( !((AlarmWizard*) wizard())->getSource().isEmpty() )

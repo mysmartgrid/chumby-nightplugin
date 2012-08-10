@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>WizardPage</string>
   </property>
+  <property name="title">
+   <string>Repetitions</string>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="4" column="0">
     <widget class="QCheckBox" name="wedBox">

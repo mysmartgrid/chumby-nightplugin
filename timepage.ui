@@ -14,9 +14,6 @@
    <string>WizardPage</string>
   </property>
   <property name="title">
-   <string>New Alarm</string>
-  </property>
-  <property name="subTitle">
    <string>Time</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">

@@ -17,8 +17,8 @@ NamePage::~NamePage()
 
 void NamePage::initializePage()
 {
-    if ( field("name").toString().isEmpty() )
-    {
+    //if ( field("name").toString().isEmpty() )
+    //{
         QString name = "";
         if ( field("weekday").toBool() && field("weekend").toBool() )
             name += "Everyday, ";
@@ -45,7 +45,7 @@ void NamePage::initializePage()
         }
         name += "at " + field("hour").toString() + ":" + field("minute").toString();
         ui->nameEdit->setText(name);
-    } else {
-        ui->nameEdit->setText(field("name").toString());
-    }
+    //} else {
+    //    ui->nameEdit->setText(field("name").toString());
+    //}
 }
