@@ -18,7 +18,13 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QListWidget" name="sourceList"/>
+    <widget class="QListWidget" name="sourceList">
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+      </font>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

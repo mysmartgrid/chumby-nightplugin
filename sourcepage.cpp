@@ -42,7 +42,8 @@ void SourcePage::initializePage()
                 return;
 
             _ui->sourceList->clearSelection();
-            items.first()->setSelected(true);
+            //items.first()->setSelected(true);
+            _ui->sourceList->setCurrentItem(items.first());
             selectSource(items.first());
         }
     } else {
@@ -62,6 +63,12 @@ void SourcePage::initializePage()
             items.first()->setSelected(true);
             selectSource(items.first());
         }
+    }
+
+    if ( _ui->sourceList->selectedItems().size() == 0 )
+    {
+            _ui->sourceList->setCurrentItem(_ui->sourceList->itemAt(1,1));
+            selectSource(_ui->sourceList->selectedItems().first());
     }
 }
 
